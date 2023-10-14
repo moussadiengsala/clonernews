@@ -1,7 +1,7 @@
 
 import Link from 'next/link'
 import Items from '../Items'
-import getColor from '@/app/Utils/getColor'
+import formatTimestamp from '@/app/Utils/formateTime'
 import { Data } from '@/app/data/models'
 
 
@@ -15,7 +15,7 @@ export default function Post({by, descendants, id, kids, score, time, title,   t
             </div>
             <div className="pt-4 flex items-center space-x-4">
                 <Items src='/avatar_svg.svg' alt='public by' lible={by}/>
-                <Items src="/time.svg" alt='time since publication' lible={time}/>
+                <Items src="/time.svg" alt='time since publication' lible={formatTimestamp(time)}/>
             </div>
             <div className="border-t-2 mt-4 pt-4 space-x-4 flex items-center">
                 <Items src="/poll.svg" alt='poll' lible={score}/>
