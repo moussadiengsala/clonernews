@@ -5,19 +5,17 @@ import useScroll from "../Hooks/scroll";
 import Post from "./Post/Post";
 import { Data } from '@/app/data/models'
 import { chunk } from 'lodash' 
+import useNotification from "../Hooks/notifications";
+import Notifications from "./Navbar/Notification"; 
 
-type PropsParams = {
-    ids: number[]
-}
+export default function Posts({ datas }: {datas: number[]}) {
 
-
-export default function Posts({ ids }: PropsParams) {
+    const [ids, isDisplayed, handleNotification] = useNotification("https://hacker-news.firebaseio.com/v0/newstories.json", datas)
     const dataChunked = useMemo(() => chunk(ids, 10), [ids]);
     const [postData, setPostData] = useState<{ [key: string]: JSX.Element }>({});
     const currentPosition = useScroll();
   
     useEffect(() => {
-        console.log("hello world!");
     
         const fetchData = async () => {
             const newPostData: { [key: string]: JSX.Element } = {};
@@ -33,13 +31,18 @@ export default function Posts({ ids }: PropsParams) {
             })
             );
     
-            setPostData((prevData) => ({ ...prevData, ...newPostData }));
+            setPostData((prevData) => ({ ...newPostData, ...prevData }));
         };
     
         fetchData();
     }, [currentPosition, dataChunked]);
   
-    return <>{Object.values(postData)}</>;
+    return (
+        <>
+            {isDisplayed && <Notifications onClick={handleNotification} />}
+            {Object.values(postData).reverse()}
+        </>
+    )
 }
   
 

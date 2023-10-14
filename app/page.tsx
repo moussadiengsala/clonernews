@@ -11,7 +11,7 @@ export default async function Home() {
     
     return (
       <main className='py-24 px-14 space-y-5'>
-          <Posts ids={data} />
+          <Posts datas={data} />
       </main>
     )
 }

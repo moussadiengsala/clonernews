@@ -16,7 +16,7 @@ export default function useScroll() {
             const scrollPrtg = documentHeight - windowHeight == 0 ? 0 : (scrollY / (documentHeight - windowHeight)) * 100;
             // setScrollPercentage(() => scrollPrtg)
             
-            if (scrollPrtg > 90) setCurrentPosition(current => current + 1)
+            if (scrollPrtg > 80) setCurrentPosition(current => current + 1)
             else if (scrollPrtg < 10) setCurrentPosition(() => 0)
         }
         

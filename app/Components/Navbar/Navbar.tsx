@@ -26,7 +26,6 @@ export default function Navbar() {
                     {nav.map(current => <li key={current.href} className={current.isCurrentPath ? "text-white" : "text-white/80"}><Link href={current.href}>{current.lible}</Link></li>)}
                 </ul>
             </nav>
-            <Notifications />
         </header>
     )
 }
