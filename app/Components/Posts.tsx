@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo } from "react";
 import useScroll from "../Hooks/scroll";
 import Post from "./Post/Post";
-import { Data } from '@/app/data/models'
+import { DataPost } from '@/app/data/models'
 import { chunk } from 'lodash' 
 import useNotification from "../Hooks/notifications";
 import Notifications from "./Navbar/Notification"; 
@@ -26,7 +26,7 @@ export default function Posts({ datas , url}: {datas: number[], url: string}) {
                         cache: "no-store"
                     });
         
-                    const data: Data = await res.json();
+                    const data: DataPost = await res.json();
                     newPostData[id] = <Post key={id} {...data} />;
                 }) || []
             );
