@@ -10,9 +10,9 @@ export default async function Home() {
     let data: number[] = await res.json()
     
     return (
-      <main className='py-24 px-14 space-y-5'>
-          <Posts datas={data} />
-      </main>
+          <main className='py-24 px-14 space-y-5'>
+              <Posts datas={data} url="https://hacker-news.firebaseio.com/v0/newstories.json" />
+          </main>
     )
 }
 

@@ -8,13 +8,13 @@ import { chunk } from 'lodash'
 import useNotification from "../Hooks/notifications";
 import Notifications from "./Navbar/Notification"; 
 
-export default function Posts({ datas }: {datas: number[]}) {
+export default function Posts({ datas , url}: {datas: number[], url: string}) {
 
-    const [ids, isDisplayed, handleNotification] = useNotification("https://hacker-news.firebaseio.com/v0/newstories.json", datas)
+    const [ids, isDisplayed, handleNotification] = useNotification(url, datas)
     const dataChunked = useMemo(() => chunk(ids, 10), [ids]);
     const [postData, setPostData] = useState<{ [key: number]: JSX.Element }>({});
     const currentPosition = useScroll(dataChunked);
-  
+
     useEffect(() => {
     
         const fetchData = async () => {

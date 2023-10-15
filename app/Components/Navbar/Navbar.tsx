@@ -9,8 +9,7 @@ export default function Navbar() {
     const pathname = usePathname()
     const nav = [
         {lible: "stories", href: "/", isCurrentPath: pathname == "/"},
-        {lible: "jobs", href: "/job", isCurrentPath: pathname == "/job"},
-        {lible: "polls", href: "/poll", isCurrentPath: pathname == "/poll"},
+        {lible: "jobs", href: "/jobs", isCurrentPath: pathname == "/jobs"},
     ]
 
     return (
