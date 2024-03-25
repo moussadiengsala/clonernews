@@ -4,7 +4,7 @@ import { throttle } from "lodash";
 
 export default function useScroll(dataChunk: number[][]) {
     let [currentPosition, setCurrentPosition] = useState<number>(0)
-    let [scrollPercentage, setScrollPercentage] = useState<number>(0)
+    // let [scrollPercentage, setScrollPercentage] = useState<number>(0)
     
     useEffect(() => {
         

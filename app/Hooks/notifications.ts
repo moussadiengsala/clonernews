@@ -1,6 +1,4 @@
 import { MouseEventHandler, useEffect, useState } from "react";
-import { Data } from "../data/models";
-
 
 export default function useNotification(url: string, data: number[]): ([number[], boolean, () => Promise<void>]) {
     let [ids, setIds] = useState<number[]>(data)
